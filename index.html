@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sorting Visualizer</title>
+
+        <link rel="stylesheet" href="./css/style.css">
+
+    </head>
+
+    <body>
+
+        <header>
+            <nav>
+                <div class="array-inputs">
+                    <p>Size:</p>
+                    <input id="arraySize" type="range" min=20 step=10 max=200 value=80>
+                    <p>Speed:</p>
+                    <input id="solveSpeed" type="range" min=1 max=1000 step=1 value=1000>
+                    <button id="arrayGenerate">Generate Array</button>
+                </div>
+
+                <div class="header-right">
+                    <p class="nav-heading">Sorting visualizer</p>
+                    <div class="algorithm">
+                        <button>Selection</button>
+                        <button>Bubble</button>
+                        <button>Insertion</button>
+                        <button>Merge</button>
+                        <button>Quick</button>
+                        <button>Heap</button>
+                        <button>Counting</button>
+                        <button>Radix</button>
+                        <button>Bucket</button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section>
+            <div id="arrayContainer"></div>
+        </section>
+
+        <script src="./scripts/main.js"></script>
+        <script src="./scripts/visualization.js"></script>
+
+        <script src="./scripts/selectionSort.js"></script>
+        <script src="./scripts/bubbleSort.js"></script>
+        <script src="./scripts/insertionSort.js"></script>
+        <script src="./scripts/mergeSort.js"></script>
+        <script src="./scripts/quickSort.js"></script>
+        <script src="./scripts/heapSort.js"></script>
+        <script src="./scripts/countingSort.js"></script>
+        <script src="./scripts/radixSort.js"></script>
+        <script src="./scripts/bucketSort.js"></script>
+    </body>
+</html>
