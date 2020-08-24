@@ -1,6 +1,6 @@
 async function Merge()
 {
-    await mergePartition(0, divSizes.length - 1);
+    await mergePartition(0, inputArraySize.value - 1);
 
     enableButtons();
 }
@@ -9,6 +9,7 @@ async function Merge()
 async function mergeSort(left, middle, right)
 {
     let sorted = [], p = left, q = middle + 1;
+    await sleep(timeDelay);
     await sleep(timeDelay);
     await sleep(timeDelay);
 
@@ -30,6 +31,8 @@ async function mergeSort(left, middle, right)
             sorted.push(divSizes[q++]);
         }
         await sleep(timeDelay);
+        await sleep(timeDelay);
+        await sleep(timeDelay);
     }
 
     for (let i  = 0; i < sorted.length; i++){
@@ -37,6 +40,8 @@ async function mergeSort(left, middle, right)
         updateDiv(divs[left], divSizes[left], "black");
         await sleep(timeDelay);
         left++;
+        await sleep(timeDelay);
+        await sleep(timeDelay);
     }
 }
 
@@ -45,9 +50,11 @@ async function mergePartition(left, right)
 {
     if (right > left){
         const middle = Math.floor((right + left) / 2);
+        await sleep(timeDelay);
         await mergePartition(left, middle);
         await mergePartition(middle + 1, right);
 
         await mergeSort(left, middle, right);
+        await sleep(timeDelay);
     }
 }

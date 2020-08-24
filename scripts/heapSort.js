@@ -5,11 +5,13 @@ async function Heap() {
 }
 
 async function heapPartition() {
-    let n = divSizes.length;
+    let n = inputArraySize.value;
+    await sleep(timeDelay);
 
     // Build heap
     for (let i = n / 2 - 1; i >= 0; i--){
         updateDiv(divs[i], divSizes[i], "darkslategray");
+        await sleep(timeDelay);
         await heapify(n, i);
         updateDiv(divs[i], divSizes[i], "gray");
     }
@@ -31,6 +33,7 @@ async function heapPartition() {
         await sleep(timeDelay);
 
         // Call max heapify on the reduced heap
+        await sleep(timeDelay);
         await heapify(i, 0);
         updateDiv(divs[i], divSizes[i], "black");
     }
@@ -42,6 +45,7 @@ async function heapify(n, i) {
     let largest = i; // Initialize largest as root
     let left  = 2*i + 1;
     let right = 2*i + 2;
+    await sleep(timeDelay);
     await sleep(timeDelay);
     await sleep(timeDelay);
 

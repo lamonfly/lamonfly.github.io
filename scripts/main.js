@@ -24,7 +24,6 @@ for(let i = 0; i < algorithmButtons.length; i++)
 function generateArray()
 {
     arrayContainer.innerHTML = "";
-
     for(let i = 0; i < inputArraySize.value; i++)
     {
         divSizes[i] = Math.floor(Math.random() * 0.5 * (inputArraySize.max - inputArraySize.min)) + 10;

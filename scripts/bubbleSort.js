@@ -1,7 +1,8 @@
 async function Bubble(){
-    for (let i = 0; i < divSizes.length - 1; i++)
+    for (let i = 0; i < inputArraySize.value - 1; i++)
     {
-        for (var j = 0; j < divSizes.length - i - 1; j++)
+        // last I elements are already in place
+        for (var j = 0; j < inputArraySize.value - i - 1; j++)
         {
             updateDiv(divs[j],divSizes[j], "darkslategray");
             await sleep(timeDelay);
@@ -10,7 +11,7 @@ async function Bubble(){
             {
                 updateDiv(divs[j+1],divSizes[j+1], "lightslategray");
                 updateDiv(divs[j],divSizes[j], "lightslategray");
-
+                // swap
                 var temp = divSizes[j];
                 await sleep(timeDelay);
 
