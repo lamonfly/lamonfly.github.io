@@ -1,5 +1,5 @@
 ## Sorting Visualizer
-### http://www.lamonfly.github.io
+### https://lamonfly.github.io/
 
 Using basic html, css and javascript.
 
