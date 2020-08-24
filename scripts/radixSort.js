@@ -16,50 +16,50 @@ async function Radix() {
     }
 
     // Do counting sort for every digit
-    for (let exp = 1; divSizes[max]/exp > 0; exp *= 10){
+    for (let exp = 1; Math.floor(divSizes[max]/exp) > 0; exp *= 10){
         await countSort(exp);
+        await sleep(timeDelay);
     }
     
     enableButtons();
 }
 
 async function countSort(exp) {
-    let output = new Array(inputArraySize.value);
+    let output = new Array(parseInt(inputArraySize.value));
     let i;
     let count = new Array(10).fill(0);
     await sleep(timeDelay);
-  
-    // Store count of occurrences in count[] 
+    await sleep(timeDelay);
+    await sleep(timeDelay * 10);
+
     for (i = 0; i < inputArraySize.value; i++){
-        count[(divSizes[i]/exp)%10]++;
-        updateDiv(divs[i], divSizes[i], "darkslategray")
+        updateDiv(divs[i], divSizes[i], "darkslategray");
+        count[(Math.floor(divSizes[i]/exp) % 10)]++;
         await sleep(timeDelay);
-        updateDiv(divs[i], divSizes[i], "gray")
+        await sleep(timeDelay);
+        updateDiv(divs[i], divSizes[i], "gray");
     }
 
-    // Change count[i] so that count[i] now contains actual 
-    // position of this digit in output[] 
     for (i = 1; i < 10; i++){
         count[i] += count[i-1];
         await sleep(timeDelay);
-    }
-
-    // Build the output array 
-    for (i = inputArraySize.value - 1; i >= 0; i--) 
-    { 
-        output[count[(divSizes[i]/exp)%10]-1] = divSizes[i]; 
-        count[(divSizes[i]/exp)%10]--;
-        updateDiv(divs[i], divSizes[i], "lightslategray");
-        await sleep(timeDelay);
         await sleep(timeDelay);
     }
 
-    console.log(divSizes);
-    console.log(output);
-    // copy sorted elements into original array
-    for (let i = 0; i < inputArraySize.value; i++){
+    for (i = inputArraySize.value - 1; i >= 0; i--){
+        updateDiv(divs[i], divSizes[i], "darkslategray");
+        output[count[Math.floor((divSizes[i]/exp)%10)] - 1] = divSizes[i];
+        count[(Math.floor(divSizes[i]/exp)%10)]--;
+        await sleep(timeDelay);
+        await sleep(timeDelay);
+        await sleep(timeDelay);
+        updateDiv(divs[i], divSizes[i], "gray");
+    }
+
+    for (i = 0; i < inputArraySize.value; i++){
         divSizes[i] = output[i];
         updateDiv(divs[i], divSizes[i], "black");
+        await sleep(timeDelay);
         await sleep(timeDelay);
     }
 }
